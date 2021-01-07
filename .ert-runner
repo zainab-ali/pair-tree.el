@@ -1,0 +1,2 @@
+-l test/pair-tree-test.el
+--reporter dot
