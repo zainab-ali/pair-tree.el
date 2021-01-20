@@ -37,3 +37,5 @@ You can navigate the tree with the arrow keys. The minibuffer shows the most con
 ## Other resources
 
 If you're learning about lists, be sure to read [the GNU Emacs manual](https://www.gnu.org/software/emacs/manual/html_node/elisp/Lists.html#Lists). You may want to check out [dash.el](https://github.com/magnars/dash.el), the excellent list library used in this package.
+
+Racket is an excellent programming language to learn in. If you're using it, take a look at [the Sdraw cons cell visualizer](https://docs.racket-lang.org/sdraw/index.html) instead.
