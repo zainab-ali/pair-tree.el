@@ -207,7 +207,6 @@ E.g. ('adaa' 'aada' ...)")
 
 (defun pair-tree--path (tree pos)
   "The path, in 'a and 'd symbols, of the element at POS from the root of TREE."
-  
   (letrec ((go (lambda (el)
                  (if (equal pos (pair-tree--el-pos el))
                      '(t)
@@ -224,7 +223,6 @@ E.g. ('adaa' 'aada' ...)")
   "Condense the PATH from a list of 'a and 'd symbols to composed accessors.
 Return a list of string accessors.
 For example, the path (\"a\" \"d\") is condensed to (\"ad\")."
-  
   (letrec ((str-path (apply #'concat path))
            (go (lambda (str)
                  (let ((accessor
@@ -569,16 +567,18 @@ The string has of (+ (-pos-line EXT) 1) lines and (+ (-pos-col EXT) 1) columns"
                            (eval (read arg))
                          (error (error "Emacs couldn't evaluate '%s'" arg))))))
   (if (< (length (-flatten pair)) pair-tree--max-list-length)
-      (let ((tree (pair-tree--make pair)))
-        (with-current-buffer (pair-tree--buf)
+      (if (image-type-available-p 'svg)
+        (let ((tree (pair-tree--make pair)))
+          (with-current-buffer (pair-tree--buf)
+            (pop-to-buffer (pair-tree--buf))
+            (pair-tree--write-tree tree)
+            (goto-char (point-min)))
+          (with-current-buffer (pair-tree--sexp-buf)
+            (pair-tree--write-sexp tree))
           (pop-to-buffer (pair-tree--buf))
-          (pair-tree--write-tree tree)
-          (goto-char (point-min)))
-        (with-current-buffer (pair-tree--sexp-buf)
-          (pair-tree--write-sexp tree))
-        (pop-to-buffer (pair-tree--buf))
-        (switch-to-buffer-other-window (pair-tree--sexp-buf))
-        (select-window (get-buffer-window (pair-tree--buf))))
+          (switch-to-buffer-other-window (pair-tree--sexp-buf))
+          (select-window (get-buffer-window (pair-tree--buf))))
+        (error "This Emacs version does not support SVGs"))
     (error "List is too large to visualize")))
 
 (provide 'pair-tree)
