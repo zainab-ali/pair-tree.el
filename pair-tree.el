@@ -18,8 +18,8 @@
 
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
-;;; Version: 0.1
-;;; Package-Requires: ((emacs "27.1") (dash "2.17.0"))
+;; Version: 0.1
+;; Package-Requires: ((emacs "27.1") (dash "2.17.0"))
 
 ;;; Commentary:
 
