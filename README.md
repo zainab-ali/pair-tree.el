@@ -3,6 +3,7 @@
 A cons cell explorer.
 
 [![GPL v3](https://img.shields.io/badge/license-GPL_v3-green.svg)](http://www.gnu.org/licenses/gpl-3.0.txt)
+[![Melpa](https://melpa.org/packages/pair-tree-badge.svg)](https://melpa.org/#/pair-tree)
 
 `M-x pair-tree` is a learning tool for visualizing Emacs Lisp lists.
 
@@ -21,6 +22,30 @@ M-x pair-tree '((2 . (turtle doves)) (3 french hens) 4 (calling . birds) partrid
 You will need Emacs 27.1 and svg support. Needless to say, this won't work on a terminal.
 
 ## Installation
+
+### Via MELPA
+
+ 1. Use the MELPA package repository
+
+   ```el
+   (require 'package)
+   (add-to-list 'package-archives
+                '("melpa" . "http://melpa.org/packages/") t)
+   ```
+
+ 2. Refresh your packages
+ 
+    ```
+    M-x package-refresh-contents
+    ```
+    
+ 3. Install `pair-tree`
+ 
+    ```
+    M-x package-install pair-tree
+    ```
+    
+#### Via GitHub
 
 Clone this repository and add `pair-tree.el` to your load path:
 
