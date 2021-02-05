@@ -387,7 +387,7 @@ LEG is a cons cell of the x and y distance to move."
 Prints the VAL within the circle."
   (svg-circle svg mid mid (- mid pair-tree--stroke-width)
               :stroke-color (face-attribute 'default ':foreground)
-              :fill-color "transparent"
+              :fill-color (face-attribute 'default ':background)
               :stroke-width 5)
   (let* ((text (seq-take (format "%S" val) pair-tree-word-length))
          ;; Centre the text.
