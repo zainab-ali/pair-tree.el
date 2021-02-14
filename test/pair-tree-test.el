@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 2021  Zainab Ali
 
-;; Author: Zainab Ali <zainab@kebab-ca.se>
+;; Author: Zainab Ali <zainab@ kebab-ca.se>
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by

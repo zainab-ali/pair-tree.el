@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 2021  Zainab Ali
 
-;; Author: Zainab Ali <zainab@kebab-ca.se>
+;; Author: Zainab Ali <zainab @kebab-ca.se>
 ;; Keywords: lisp, tools
 ;; URL: https://github.com/zainab-ali/pair-tree
 
