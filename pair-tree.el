@@ -332,6 +332,9 @@ Returns an assoc list of `pair-tree--pos' to regions."
 
 (defconst pair-tree--stroke-width 5 "The width of branch lines and leaf outlines.")
 
+(defconst pair-tree--arrowhead-length 3 "The length of the arrowheads on branch lines in units of stroke width.")
+(defconst pair-tree--arrowhead-id "arrow" "The id of the arrowhead svg marker.")
+
 (defun pair-tree--char-height ()
   "The height in pt of a character in an SVG.
 This is taken from the default font height."
@@ -363,6 +366,7 @@ The VAL can be any object.  It is formatted as an sexp and trimmed to
          (mid (/ len 2.0))
          (svg (svg-create len len
                           :stroke-width pair-tree--stroke-width)))
+    (pair-tree--image-svg-branch-arrowhead svg)
     (pcase (pair-tree--category-of char)
       ('hanging-leaf (pair-tree--image-svg-circle svg mid val))
       ('lying-leaf (pair-tree--image-svg-circle svg mid val))
@@ -381,6 +385,7 @@ LEG is a cons cell of the x and y distance to move."
                   (lineto (,leg)))
             :stroke-color (face-attribute 'default ':foreground)
             :stroke-width pair-tree--stroke-width
+            :marker-end (format "url(#%s)" pair-tree--arrowhead-id)
             :relative t))
 
 (defun pair-tree--image-svg-circle (svg mid val)
@@ -405,6 +410,23 @@ Prints the VAL within the circle."
      :font-family (face-attribute 'default ':family)
      :x x-offset
      :y y-offset)))
+
+(defun pair-tree--image-svg-branch-arrowhead (svg)
+  "Declare an arrowhead marker in SVG.  This is placed at the end of each branch."
+  (svg--def
+   svg
+   (dom-node
+    'marker
+    `((id . ,pair-tree--arrowhead-id)
+      (viewBox . "0 0 10 10")
+      (refX . 10)
+      (refY . 5)
+      (markerWidth . ,pair-tree--arrowhead-length)
+      (markerHeight . ,pair-tree--arrowhead-length)
+      (orient . auto))
+    (dom-node 'path `((d . "M 0 0 L 10 5 L 0 10 z")
+                      (fill . ,(face-attribute 'default ':foreground)))))))
+
 
 (defun pair-tree--display-image (char &optional val)
   "Return a string of CHAR with a display property set to an SVG image.
