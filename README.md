@@ -66,3 +66,10 @@ If you're learning about lists, be sure to read [the GNU Emacs manual](https://w
 Racket is an excellent programming language to learn in. If you're using it, take a look at [the Sdraw cons cell visualizer](https://docs.racket-lang.org/sdraw/index.html) instead.
 
 If you're keen to dive deeply into box‑and‑pointer diagrams, have a read through [Structure and Interpretation of Computer Programs by Ableson and Sussman](https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-15.html#%_sec_2.2).
+
+## Contributors
+
+Thanks to the following people for helping pair-tree grow.
+
+ - Nicholas Vollmer ([@progfolio](https://github.com/progfolio)) [#4](https://github.com/zainab-ali/pair-tree.el/pull/4)
+ - Daniel Nicolai ([@dalanicolai](https://github.com/dalanicolai)) [#8](https://github.com/zainab-ali/pair-tree.el/pull/8)
